@@ -1,0 +1,135 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+file_search(grobner)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(%)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: section start ]
+Examples
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2005/011828.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduced_grobner([c*x^2-a,c*x-b],[x,a,b,c]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2006/015036.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eqs : [x^2+y^2=4,(s-x)^2+y^2=16,x^2+(s-y)^2=25]$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eqs : map(rhs,eqs)-map(lhs,eqs);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduced_grobner(eqs,[s,x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2007/021312.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduced_grobner([x^2+y^2-2^2,(x-1)^2+(y-1)^2-2^2], [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2007/021319.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eqs: [a*y^2+x^2-1,y^2+a*x^2-1]$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduced_grobner(eqs,[a,x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2007/021324.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eqs: [ sqrt(2)*y^2 + x^2/2 - 1, 2*y^2 + a*x^2 - 1 ]$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_grobner(eqs, [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2008/022048.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_grobner([x^5+y^4+z^3-1,x^3+y^3+z^2-1], [x,y,z]), modulus=3;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2011/038628.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+ev(poly_grobner([- 1 + z^3  + y^4  + x^5 , - 1 + z^2  + y^3  + x^3 ],
+[x, y, z]), poly_coefficient_ring = 'ring_of_integers);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://def.fe.up.pt/pipermail/maxima-discuss/2015/053981.html
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+p:-768*y[2]^3*y[5]^7-288*y[2]*y[4]^2*y[5]^6-2016*y[2]^3*y[4]^2*y[5]^5
+  -540*y[2]*y[4]^4*y[5]^4-1788*y[2]^3*y[4]^4*y[5]^3
+  -252*y[2]*y[4]^6*y[5]^2-540*y[2]^3*y[4]^6*y[5]$
+ q:50688*y[2]^2*y[4]^2*y[5]^10+16896*y[4]^4*y[5]^9
+  +198144*y[2]^2*y[4]^4*y[5]^8+59712*y[4]^6*y[5]^7
+  +292680*y[2]^2*y[4]^6*y[5]^6+79656*y[4]^8*y[5]^5
+  +193464*y[2]^2*y[4]^8*y[5]^4+47640*y[4]^10*y[5]^3
+  +48240*y[2]^2*y[4]^10*y[5]^2+10800*y[4]^12*y[5]$
+ qlist : [q]$
+ [a, r, c, n] : poly_pseudo_divide(p,qlist,[y[2]]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+is (equal (c*p, sum (a[i]*qlist[i], i, 1, n) + r));
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
