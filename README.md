@@ -25,3 +25,7 @@ https://gist.github.com/Observatorio-de-Matematica/92e32329235e0dc3d93b69a77c80b
 Ray D. Sameshima
 
 https://github.com/raydsameshima/Groebner
+
+Vladimir Rutsky
+
+https://github.com/rutsky/semester07/blob/master/Computer_algebra/toric_ideal.wxm
