@@ -130,6 +130,164 @@ is (equal (c*p, sum (a[i]*qlist[i], i, 1, n) + r));
 /* [wxMaxima: input   end   ] */
 
 
+/* [wxMaxima: section start ]
+Another examples
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://github.com/mattpap/masters-thesis/blob/master/slides/content/example-maxima.tex
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+E: [[1,2],[2,3],[1,4],[1,6],[1,12],[2,5],[2,7],[3,8],
+[3,10],[4,11],[4,9],[5,6],[6,7],[7,8],[8,9],[9,10],[10,11],
+[11,12],[5,12],[5,9],[6,10],[7,11],[8,12]];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+X: makelist(concat("x", i), i, 1, 12);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+U: makelist(X[i]^3 - 1, i, 1, 12);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+V: [];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+for e in E do
+        V: endcons(X[e[1]]^2 + X[e[1]]*X[e[2]] + X[e[2]]^2, V);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+G: poly_reduced_grobner(append(U, V), X);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+is(notequal(G, [1]));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://github.com/kovzol/gbt/blob/master/gbtest/tests/1480506942440/maxima.php.in
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_monomial_order:lex$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduction(poly_grobner([x^2+x*y-1,2*x*y+3*x,x^3],[x,y]),[x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+https://github.com/raydsameshima/Groebner/blob/master/GB.tex
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_reduced_grobner ([x^2+y+z-1, x+y^2+z-1, x+y+z^2-1],[x,y,z]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+where the default settings are
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_monomial_order;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_grobner_algorithm;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+If we set
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g: poly_reduced_grobner ([x^2+y+z-1, x+y^2+z-1, x+y+z^2-1],[x,y,z]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g[4], factor;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+we can solve the 4th Gröbner basis g[4] for z
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%,z);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Substituting these solution in the rest equations, we'll get the full solutions.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g, z=0;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%, [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g, z=1;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%, [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g, z = (-sqrt(2))-1;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%, [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+g, z = sqrt(2)-1;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(%, [x,y]);
+/* [wxMaxima: input   end   ] */
+
+
 
 /* Old versions of Maxima abort on loading files that end in a comment. */
 "Created with wxMaxima 22.04.0"$
