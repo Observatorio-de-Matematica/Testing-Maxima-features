@@ -136,6 +136,52 @@ Another examples
 
 
 /* [wxMaxima: subsect start ]
+http://kfe.fjfi.cvut.cz/~liska/ca/node123.html#SECTION00532400000000000000
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+This one is an adaptation
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(all);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+polys : [45*p + 35*s - 165*b - 36,
+         35*p + 40*z + 25*t - 27*s,
+         15*w + 25*p*s + 30*z - 18*t - 165*b^2,
+         - 9*w + 15*p*t + 20*z*s,
+         w*p + 2*z*t - 11*b^3,
+         99*w - 11*s*b + 3*b^2,
+         b^2 + 33/50*b + 2673/10000];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+vars :  [w, p, z, t, s, b];
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+poly_monomial_order:grevlex;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+gpolys:poly_reduced_grobner(polys,vars);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+solve(gpolys, vars);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
 https://github.com/mattpap/masters-thesis/blob/master/slides/content/example-maxima.tex
    [wxMaxima: subsect end   ] */
 
