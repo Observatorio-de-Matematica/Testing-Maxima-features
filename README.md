@@ -12,6 +12,10 @@ https://gist.github.com/Observatorio-de-Matematica/11bbd98efd2e1b11c32553f0ff9fb
 
 ## Gröbner related stuff.
 
+Old Macsyma
+
+http://kfe.fjfi.cvut.cz/~liska/ca/node123.html#SECTION00532400000000000000
+
 Pascual Jara from Universidad de Granada made some use of this package.
 
 https://gist.github.com/Observatorio-de-Matematica/f5fcef35a50b47347d9fabbd04026555
